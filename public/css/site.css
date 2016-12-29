@@ -59,3 +59,12 @@ body {
   border-radius: 4px;
   cursor: pointer;
 }
+
+.tweet {
+  padding: 10px 12px;
+  border-top: 1px solid #e1e8ed;
+}
+
+.light-grey {
+  color: #8899a6;
+}
