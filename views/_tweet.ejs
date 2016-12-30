@@ -4,5 +4,7 @@
     <span class="light-grey"> - <%= tweet.time_from_now %></span>
   </p>
   <p><%= tweet.body %></p>
-  <p><a href="/tweets/<%= tweet.id %>/edit">Edit</a></p>
+  <% if(tweet.isEditable) { %>
+    <p><a href="/tweets/<%= tweet.id %>/edit">Edit</a></p>
+  <% } %>
 </article>
