@@ -7,19 +7,12 @@
     <header></header>
     <main>
       <form id="tweet-form" action="/tweets/create" method="POST">
-        <input id="tweet-form-handle" type="text" name="handle" placeholder="DonkkaShane">
+        <input id="tweet-form-handle" type="text" name="handle" placeholder="elonmusk">
         <textarea id="tweet-form-body" name="body" placeholder="What's happening?"></textarea>
         <button id="tweet-form-button">Tweet</button>
       </form>
       <% for(var i = 0; i < tweets.length; i++) { %>
-        <% var tweet = tweets[i]; %>
-        <article class="tweet">
-          <p>
-            <a href="http://twitter.com/<%= tweet.handle %>">@<%= tweet.handle %></a>
-            <span class="light-grey"> - <%= tweet.time_from_now %></span>
-          </p>
-          <p><%= tweet.body %></p>
-        </article>
+        <%- include('_tweet', { tweet: tweets[i] }); %>
       <% } %>
     </main>
   </body>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/css/site.css">
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <%- include('_tweet', { tweet: tweet }); %>
+      <form id="tweet-form" action="/tweets/<%= tweet.id %>/update" method="POST">
+        <input id="tweet-form-handle" type="text" name="handle" placeholder="DonkkaShane" value="<%= tweet.handle %>">
+        <textarea id="tweet-form-body" name="body" placeholder="What's happening?"><%= tweet.body %></textarea>
+        <button id="tweet-form-button">Update Tweet</button>
+      </form>
+    </main>
+  </body>
+</html>
