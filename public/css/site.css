@@ -68,3 +68,13 @@ body {
 .light-grey {
   color: #8899a6;
 }
+
+#tweet-form-delete-button {
+  color: #ffffff;
+  font-size: 14px;
+  padding: 7px 8px;
+  background-color: #e53334;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+}

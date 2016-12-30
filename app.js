@@ -81,16 +81,25 @@ app.get('/tweets/:id([0-9]+)/edit', function(req, res) {
 });
 
 app.post('/tweets/:id([0-9]+)/update', function(req, res) {
-  var query = 'UPDATE Tweets SET body = ?, handle = ? WHERE id = ?';
+  var updateQuery = 'UPDATE Tweets SET body = ?, handle = ? WHERE id = ?';
+  var deleteQuery = 'DELETE FROM Tweets WHERE id = ?';
   var id = req.params.id;
   var handle = req.body.handle;
   var body = req.body.body;
-
-  connection.query(query, [body, handle, id], function(err) {
+  var isDelete = req.body.delete_button !== undefined;
+  var queryCallback = function(err) {
     if(err) {
       console.log(err);
     }
 
     res.redirect('/');
-  });
+  };
+
+  if(isDelete) {
+    // Our delete code goes here.
+    connection.query(deleteQuery, [id], queryCallback);
+  } else {
+    // The update button was pressed.
+    connection.query(updateQuery, [body, handle, id], queryCallback);
+  }
 });
